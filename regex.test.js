@@ -5,8 +5,8 @@
 /* Write a function that take a string and return true if the string only contain uppercase and lowercase
 characters (no numbers and symbols) and it should end with capital A else return false */
 
-function endsWithCapitalA(s) {
-    const regex = /^[a-zA-Z]*A$/; 
+function capitalA(s) {
+    const regex = /^[a-zA-Z].*A$/gm; 
     return regex.test(s);
   }
   
@@ -15,7 +15,7 @@ function endsWithCapitalA(s) {
 which end with io (example@example.io) */
 
 function ioEmail(email) {
-    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.io$/; 
+    const regex = /^\w*@\w*\.io/gm
     return regex.test(email);
   }
   
@@ -27,7 +27,7 @@ required extention are jpg, jpeg and png.
 */
 
 function imagesSearcher(text) {
-    const regex = /([a-zA-Z0-9\s_\\.\-():])+(.jpg|.jpeg|.png)\b/gi; 
+    const regex = /\w*(.jpg|.jpeg|.png)/gm; 
     const matches = text.match(regex); 
     
     if (matches) {
